@@ -22,74 +22,91 @@ export default function HomePage() {
   return (
     <div className="relative overflow-x-hidden min-h-screen">
       {/* Hero Section with Parallax */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-background">
-        <div className="absolute inset-0 z-0">
+      <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-background py-14 sm:py-20">
+        {/* Background Layer: High clarity, naturally warm and bright without washing out */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <div
-            className="w-full h-full bg-cover bg-center transition-transform duration-300 ease-out opacity-35"
+            className="w-full h-full bg-cover bg-[center_top_15%] sm:bg-center transition-transform duration-300 ease-out brightness-[1.04] contrast-[1.03] saturate-[1.05]"
             style={{
               backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfOFfs3-bUV1lXTfufKLMLuIDyeRhTRQRZ6QkX5gW6a9S9QEsdw8T71VYP95xmCo-WIXfYBPp-2uKBCFulpesAIavLFUFYnMNLvgzauwJshKxjGD3jrmRg-EA0DH0DcUve2fsRR1EytseB8d3wTJkdAXGGjB98PP6ScWxHYvlfdKxX8bMzdr9gXnm0iVyEZJtguY-HK-PY-KLKIqlvWEQvVmuVHyzEtI6o33lKppxniJTXBHocxcD8HYC2BL4ZujIdo104qv-DgHQ')",
-              transform: `scale(1.1) translate(${coords.x}px, ${coords.y}px)`,
+              transform: "scale(1.08) translate(" + coords.x + "px, " + coords.y + "px)",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white opacity-90" />
+          {/* Subtle localized highlight behind typography only - preserves the couple, faces, and rich ambient restaurant light */}
+          <div className="absolute inset-0 hero-vignette" />
         </div>
         
-        <div className="relative z-10 max-w-container-max-width mx-auto px-6 md:px-margin-desktop text-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel mb-8 border border-secondary/20 shadow-sm animate-pulse">
-            <span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
-              stars
+        {/* Hero Content Container */}
+        <div className="relative z-10 max-w-container-max-width mx-auto px-4 sm:px-6 md:px-margin-desktop text-center flex flex-col items-center">
+          
+          {/* Eyebrow Label */}
+          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-white/85 backdrop-blur-md mb-5 sm:mb-6 border border-secondary/30 shadow-sm transition-transform hover:scale-[1.02]">
+            <span className="material-symbols-outlined text-secondary text-base" style={{ fontVariationSettings: "'FILL' 1" }}>
+              auto_awesome
             </span>
-            <span className="text-[10px] tracking-wider uppercase font-bold text-secondary">
-              Elite AI Matchmaking
+            <span className="text-[10px] sm:text-[11px] tracking-widest uppercase font-bold text-secondary">
+              INTELLIGENT MATCHMAKING, REFINED
             </span>
           </div>
           
-          <h1 className="font-headline text-4xl md:text-5xl text-primary font-bold mb-6 max-w-3xl mx-auto leading-tight">
-            Where Sophisticated Souls Meet <span className="text-secondary italic font-light">Intelligence.</span>
+          {/* Main Headline */}
+          <h1 className="font-headline text-3xl sm:text-5xl md:text-6xl font-extrabold text-primary mb-4 sm:mb-5 max-w-4xl mx-auto leading-[1.18] sm:leading-[1.15] tracking-tight hero-text-glow">
+            Where Meaningful Connections Meet <span className="text-secondary font-normal italic font-serif">Modern Intelligence.</span>
           </h1>
           
-          <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12 text-lg">
-            Experience the future of partnership. Our proprietary Aura AI analyzes deep psychological compatibility to curate matches that resonate with your lifestyle and values.
+          {/* Supporting Description */}
+          <p className="text-sm sm:text-base md:text-lg text-[#1b253b] font-medium max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed hero-text-glow px-2">
+            Discover thoughtfully curated matches with Aura AI. Find someone who shares your values, complements your ambitions, and envisions a future as meaningful as yours.
           </p>
 
-          {/* Search Widget */}
-          <div className="glass-panel p-3 rounded-[32px] md:rounded-full max-w-4xl mx-auto flex flex-col md:flex-row gap-3 shadow-2xl border border-outline-variant/30">
-            <div className="flex-1 px-6 py-2.5 flex items-center gap-3 text-left border-r border-outline-variant/20">
-              <span className="material-symbols-outlined text-primary text-2xl">
-                person_search
-              </span>
-              <div>
+          {/* Match Preference Panel */}
+          <div className="hero-pref-card p-2 sm:p-3 rounded-3xl md:rounded-full w-full max-w-4xl mx-auto flex flex-col md:flex-row gap-2 sm:gap-3 transition-all duration-300">
+            {/* Seeking Field */}
+            <div className="flex-1 px-4 sm:px-6 py-2.5 sm:py-3 flex items-center gap-3 text-left border-b md:border-b-0 md:border-r border-outline-variant/20 hover:bg-white/40 rounded-2xl md:rounded-l-full transition-colors cursor-pointer">
+              <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-xl sm:text-2xl">
+                  person_search
+                </span>
+              </div>
+              <div className="min-w-0">
                 <p className="text-[10px] uppercase tracking-wider font-bold text-outline">Seeking</p>
-                <p className="text-sm font-bold text-on-surface">Modern Woman</p>
+                <p className="text-xs sm:text-sm font-bold text-on-surface truncate">Modern Woman</p>
               </div>
             </div>
             
-            <div className="flex-1 px-6 py-2.5 flex items-center gap-3 text-left border-r border-outline-variant/20">
-              <span className="material-symbols-outlined text-primary text-2xl">
-                location_on
-              </span>
-              <div>
+            {/* Location Field */}
+            <div className="flex-1 px-4 sm:px-6 py-2.5 sm:py-3 flex items-center gap-3 text-left border-b md:border-b-0 md:border-r border-outline-variant/20 hover:bg-white/40 rounded-2xl transition-colors cursor-pointer">
+              <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-xl sm:text-2xl">
+                  location_on
+                </span>
+              </div>
+              <div className="min-w-0">
                 <p className="text-[10px] uppercase tracking-wider font-bold text-outline">Location</p>
-                <p className="text-sm font-bold text-on-surface">London, UK</p>
+                <p className="text-xs sm:text-sm font-bold text-on-surface truncate">London, UK</p>
               </div>
             </div>
             
-            <div className="flex-1 px-6 py-2.5 flex items-center gap-3 text-left">
-              <span className="material-symbols-outlined text-primary text-2xl">
-                interests
-              </span>
-              <div>
+            {/* Priorities Field */}
+            <div className="flex-1 px-4 sm:px-6 py-2.5 sm:py-3 flex items-center gap-3 text-left hover:bg-white/40 rounded-2xl transition-colors cursor-pointer">
+              <div className="w-10 h-10 rounded-full bg-secondary/15 text-secondary flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-xl sm:text-2xl">
+                  interests
+                </span>
+              </div>
+              <div className="min-w-0">
                 <p className="text-[10px] uppercase tracking-wider font-bold text-outline">Priorities</p>
-                <p className="text-sm font-bold text-on-surface">Intellect & Growth</p>
+                <p className="text-xs sm:text-sm font-bold text-on-surface truncate">Intellect & Growth</p>
               </div>
             </div>
             
+            {/* Find My Match Primary CTA */}
             <Link
               href="/dashboard"
-              className="bg-primary hover:bg-primary-light text-white px-10 py-4 rounded-full font-bold transition-all shadow-md flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-[0.97]"
+              className="bg-primary hover:bg-primary-light text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-2xl md:rounded-full font-bold text-xs sm:text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] shrink-0 min-h-[48px]"
             >
               <span>Find My Match</span>
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              <span className="material-symbols-outlined text-base">arrow_forward</span>
             </Link>
           </div>
         </div>
@@ -334,3 +351,4 @@ export default function HomePage() {
     </div>
   );
 }
+
