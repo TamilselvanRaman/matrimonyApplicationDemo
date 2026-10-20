@@ -48,11 +48,31 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Desktop Admin Link */}
+            <Link
+              href="/admin"
+              className="px-3 py-1 rounded-full text-xs font-bold text-secondary bg-secondary-container/30 border border-secondary/20 hover:bg-secondary-container/60 transition-colors flex items-center gap-1"
+              title="Aura Administration Portal"
+            >
+              <span className="material-symbols-outlined text-sm">shield</span>
+              <span>Admin</span>
+            </Link>
           </nav>
 
           {/* Actions & Mobile Menu Toggle */}
           <div className="flex items-center gap-2 sm:gap-4">
-            {/* Profile Link - visible on both */}
+            {/* Mobile Admin Link (compact badge on small screens) */}
+            <Link
+              href="/admin"
+              className="md:hidden px-2.5 py-1 rounded-full text-[11px] font-bold text-secondary bg-secondary-container/40 border border-secondary/20 flex items-center gap-1"
+              title="Admin Portal"
+            >
+              <span className="material-symbols-outlined text-sm">shield</span>
+              <span>Admin</span>
+            </Link>
+
+            {/* Profile Link */}
             <Link
               href="/profile/alexander"
               className="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-label-md font-semibold text-primary hover:bg-surface-container transition-colors flex items-center gap-1"
@@ -125,6 +145,21 @@ export default function Header() {
                   <span className="material-symbols-outlined text-base">chevron_right</span>
                 </Link>
               ))}
+
+              {/* Admin Link in Mobile Drawer */}
+              <Link
+                href="/admin"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-4 py-3 rounded-xl font-bold text-sm text-secondary bg-secondary-container/30 border border-secondary/20 flex items-center justify-between mt-1"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-lg">shield</span>
+                  <span>Admin Panel Portal</span>
+                </div>
+                <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-secondary text-white font-bold">
+                  HQ
+                </span>
+              </Link>
             </nav>
 
             <div className="pt-2 border-t border-outline-variant/20 flex flex-col gap-2">
