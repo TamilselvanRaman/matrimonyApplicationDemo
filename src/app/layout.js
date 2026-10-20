@@ -37,10 +37,10 @@ export default function RootLayout({ children }) {
                 Discover
               </Link>
               <Link href="/dashboard" className="text-on-surface-variant hover:text-primary transition-colors font-semibold py-1">
-                Matches
+                Matches & Interests
               </Link>
-              <Link href="/connect" className="text-on-surface-variant hover:text-primary transition-colors font-semibold py-1">
-                Messages
+              <Link href="/dashboard" className="text-on-surface-variant hover:text-primary transition-colors font-semibold py-1">
+                Video & Chat
               </Link>
               <Link href="/profile/alexander" className="text-on-surface-variant hover:text-primary transition-colors font-semibold py-1">
                 Elite Spotlight
